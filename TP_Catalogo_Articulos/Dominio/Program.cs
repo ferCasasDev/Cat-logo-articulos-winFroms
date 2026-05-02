@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TPFinalNivel_Casas
+namespace Dominio
 {
     internal static class Program
     {
@@ -16,7 +16,7 @@ namespace TPFinalNivel_Casas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormCatalogo());
+            Application.Run(new Form1());
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace TPFinalNivel_Casas
 {
-    partial class Form1
+    partial class FormCatalogo
     {
         /// <summary>
         /// Variable del diseñador necesaria.

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TPFinalNivel_Casas
 {
-    public partial class Form1 : Form
+    public partial class FormCatalogo : Form
     {
-        public Form1()
+        public FormCatalogo()
         {
             InitializeComponent();
         }
