@@ -19,7 +19,7 @@ namespace Negocio
 
             try
             {
-
+                
                 datos.SetearConsulta("select Id, Codigo, Nombre, Descripcion from ARTICULOS");
                 datos.EjecutarLectura();
 

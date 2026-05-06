@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Negocio;
+
 
 namespace TPFinalNivel_Casas
 {
@@ -15,6 +17,13 @@ namespace TPFinalNivel_Casas
         public FormCatalogo()
         {
             InitializeComponent();
+        }
+
+        private void FormCatalogo_Load(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            // Al dataSource del data grid view le iplemeto el metodo listar
+            dgvArticulos.DataSource = negocio.Listar();
         }
     }
 }
