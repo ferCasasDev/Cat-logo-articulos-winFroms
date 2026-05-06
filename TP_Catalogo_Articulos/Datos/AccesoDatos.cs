@@ -52,7 +52,7 @@ namespace Datos
         }
 
         // método para cerrar conexión y lector
-        public void CerrarConexion()
+        public void CerrarConexion()   
         {
             if (lector != null)
                 lector.Close();
