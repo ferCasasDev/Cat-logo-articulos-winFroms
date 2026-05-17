@@ -52,5 +52,11 @@ namespace TPFinalNivel_Casas
                 pbxArticulos.Load("https://as2.ftcdn.net/jpg/01/07/43/45/220_F_107434511_iarF2z88c6Ds6AlgtwotHSAktWCdYOn7.jpg");
             }
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            FrmAtaArticulo alta = new FrmAtaArticulo();
+            alta.ShowDialog();
+        }
     }
 }
