@@ -13,5 +13,7 @@ namespace Dominio
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public string UrlImagen { get; set; }
+        public Marca Mar { get; set; }
+        public Categoria Cate { get; set; }
     }
 }

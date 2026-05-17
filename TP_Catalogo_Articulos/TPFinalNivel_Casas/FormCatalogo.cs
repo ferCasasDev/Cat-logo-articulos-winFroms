@@ -21,6 +21,7 @@ namespace TPFinalNivel_Casas
             InitializeComponent();
         }
 
+        // LOAD
         private void FormCatalogo_Load(object sender, EventArgs e)
         {
             List<Articulo> listaArticulo = new List<Articulo>();
@@ -29,7 +30,8 @@ namespace TPFinalNivel_Casas
             listaArticulo = negocio.Listar();
             // Al dataSource del data grid view le asigno la lista.
             dgvArticulos.DataSource = listaArticulo;
-            pbxArticulos.Load(listaArticulo[0].UrlImagen); // cargo la primera imagen
+            dgvArticulos.Columns["UrlImagen"].Visible = false;
+            CargarImagen(listaArticulo[0].UrlImagen); // cargo la primera imagen
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)

@@ -20,7 +20,7 @@ namespace Negocio
             try
             {
                 // seteo de consulta y lectura de la DB
-                datos.SetearConsulta("select Id, Codigo, Nombre, Descripcion, ImagenUrl from ARTICULOS");
+                datos.SetearConsulta("select A.Id, A.Codigo, A.Nombre, A.Descripcion, ImagenUrl, M.Descripcion Marca, C.Descripcion Categoria from ARTICULOS A,MARCAS M, CATEGORIAS C where A.IdCategoria = C.Id and A.IdMarca = M.Id");
                 datos.EjecutarLectura();
 
                 // mapeo de datos de la DB a través del lector
@@ -32,6 +32,10 @@ namespace Negocio
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.UrlImagen = (string)datos.Lector["ImagenUrl"];
+                    aux.Mar = new Marca();
+                    aux.Mar.Descripcion = (string)datos.Lector["Marca"];
+                    aux.Cate = new Categoria();
+                    aux.Cate.Descripcion = (string)datos.Lector["Categoria"];
 
                     lista.Add(aux);
                 }
