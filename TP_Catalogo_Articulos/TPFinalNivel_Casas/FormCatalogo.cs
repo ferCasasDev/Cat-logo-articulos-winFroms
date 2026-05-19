@@ -31,6 +31,7 @@ namespace TPFinalNivel_Casas
             // Al dataSource del data grid view le asigno la lista.
             dgvArticulos.DataSource = listaArticulo;
             dgvArticulos.Columns["UrlImagen"].Visible = false;
+            dgvArticulos.Columns["Id"].Visible = false;
             CargarImagen(listaArticulo[0].UrlImagen); // cargo la primera imagen
         }
 
@@ -55,7 +56,7 @@ namespace TPFinalNivel_Casas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            FrmAtaArticulo alta = new FrmAtaArticulo();
+            FrmAltaArticulo alta = new FrmAltaArticulo();
             alta.ShowDialog();
         }
     }

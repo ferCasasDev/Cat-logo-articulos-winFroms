@@ -51,6 +51,22 @@ namespace Datos
             }
         }
 
+        //ejecutar Acción sin lectura 
+        public void EjecutarAccion()
+        {
+            comando.Connection = conexion;
+
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         // método para cerrar conexión y lector
         public void CerrarConexion()   
         {

@@ -11,7 +11,6 @@ namespace Negocio
 {
     public class ArticuloNegocio
     {
-
         public List<Articulo> Listar()
         {
             List<Articulo> lista = new List<Articulo>();
@@ -54,6 +53,26 @@ namespace Negocio
                 datos.CerrarConexion();
             }
         }
+        public void cargar(Articulo nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                // aquí setaearemos los datos con parámetros @ 
+                datos.SetearConsulta("insert into ARTICULOS(Codigo, Nombre, Descripcion) values('', '', '')");
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+
+        }
+
 
     }
 }
