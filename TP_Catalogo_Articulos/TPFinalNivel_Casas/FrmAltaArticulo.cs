@@ -36,8 +36,21 @@ namespace TPFinalNivel_Casas
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void FrmAltaArticulo_Load(object sender, EventArgs e)
+        {
+            MarcaNegocio marNeg = new MarcaNegocio();
+            try
+            {
+                cboMarca.DataSource = marNeg.Listar();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }
