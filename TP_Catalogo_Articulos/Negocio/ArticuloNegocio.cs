@@ -19,7 +19,7 @@ namespace Negocio
             try
             {
                 // seteo de consulta y lectura de la DB
-                datos.SetearConsulta("select A.Id, A.Codigo, A.Nombre, A.Descripcion, ImagenUrl, M.Descripcion Marca, C.Descripcion Categoria from ARTICULOS A,MARCAS M, CATEGORIAS C where A.IdCategoria = C.Id and A.IdMarca = M.Id");
+                datos.SetearConsulta("select A.Id, A.Codigo, A.Nombre, A.Descripcion, ImagenUrl, M.Descripcion Marca, C.Descripcion Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where A.IdCategoria = C.Id and A.IdMarca = M.Id");
                 datos.EjecutarLectura();
 
                 // mapeo de datos de la DB a través del lector
@@ -53,13 +53,16 @@ namespace Negocio
                 datos.CerrarConexion();
             }
         }
-        public void cargar(Articulo nuevo)
+        public void Cargar(Articulo nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
                 // aquí setaearemos los datos con parámetros @ 
-                datos.SetearConsulta("insert into ARTICULOS(Codigo, Nombre, Descripcion) values('', '', '')");
+                datos.SetearConsulta("insert into ARTICULOS(Codigo, Nombre, Descripcion) values(@Codigo, @Nombre, @Descripcion)");
+                datos.SetearParametros("@Codigo",nuevo.Codigo);
+                datos.SetearParametros("@Nombre",nuevo.Nombre);
+                datos.SetearParametros("@Descripcion", nuevo.Descripcion);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)

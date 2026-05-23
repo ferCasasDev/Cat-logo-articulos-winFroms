@@ -36,6 +36,12 @@ namespace Datos
             comando.CommandText = consulta;
         }
 
+        //método para setear parámetros
+        public void SetearParametros(string nombre, object valor)
+        {
+            comando.Parameters.AddWithValue(nombre, valor);
+        }
+
         // método para ejecutar la lectura 
         public void EjecutarLectura()
         {

@@ -30,7 +30,7 @@ namespace TPFinalNivel_Casas
                 art.Nombre = txtNombre.Text;
                 art.Descripcion = txtDescripcion.Text;
 
-                negocio.cargar(art);
+                negocio.Cargar(art);
                 MessageBox.Show("Artículo cargado exitosamente");
                 Close();
             }
