@@ -43,9 +43,11 @@ namespace TPFinalNivel_Casas
         private void FrmAltaArticulo_Load(object sender, EventArgs e)
         {
             MarcaNegocio marNeg = new MarcaNegocio();
+            CategoriaNegocio catNeg = new CategoriaNegocio();
             try
             {
                 cboMarca.DataSource = marNeg.Listar();
+                cboCategoria.DataSource = catNeg.Listar();
             }
             catch (Exception ex)
             {
