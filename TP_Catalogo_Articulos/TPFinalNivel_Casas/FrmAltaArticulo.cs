@@ -29,6 +29,7 @@ namespace TPFinalNivel_Casas
                 art.Codigo = txtCodigo.Text; 
                 art.Nombre = txtNombre.Text;
                 art.Descripcion = txtDescripcion.Text;
+                art.UrlImagen = txtUrlImagen.Text;
                 art.Mar = (Marca)cboMarca.SelectedItem;
                 art.Cate = (Categoria)cboCategoria.SelectedItem;
                 art.Precio = decimal.Parse(txtPrecio.Text);
@@ -56,6 +57,23 @@ namespace TPFinalNivel_Casas
             {
 
                 throw ex;
+            }
+        }
+
+        private void txtUrlImagen_Leave(object sender, EventArgs e)
+        {
+            CargarImagen(txtUrlImagen.Text);
+        }
+
+        public void CargarImagen(string imagen)
+        {
+            try
+            {
+                pbxArticulos.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pbxArticulos.Load("https://as2.ftcdn.net/jpg/01/07/43/45/220_F_107434511_iarF2z88c6Ds6AlgtwotHSAktWCdYOn7.jpg");
             }
         }
     }

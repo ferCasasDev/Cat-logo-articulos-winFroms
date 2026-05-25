@@ -68,13 +68,14 @@ namespace Negocio
             try
             {
                 // aquí setaearemos los datos con parámetros @ 
-                datos.SetearConsulta("insert into ARTICULOS(Codigo, Nombre, Descripcion,IdMarca, IdCategoria, Precio) values(@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio)");
+                datos.SetearConsulta("insert into ARTICULOS(Codigo, Nombre, Descripcion, ImagenUrl, IdMarca, IdCategoria, Precio) values(@Codigo, @Nombre, @Descripcion, @ImagenUrl, @IdMarca, @IdCategoria, @Precio)");
                 datos.SetearParametros("@Codigo",nuevo.Codigo);
                 datos.SetearParametros("@Nombre",nuevo.Nombre);
                 datos.SetearParametros("@Descripcion", nuevo.Descripcion);
                 datos.SetearParametros("@IdMarca", nuevo.Mar.Id);
                 datos.SetearParametros("@IdCategoria", nuevo.Cate.Id);
                 datos.SetearParametros("@Precio", nuevo.Precio);
+                datos.SetearParametros("@ImagenUrl", nuevo.UrlImagen);
                 datos.EjecutarAccion();
             }
             catch (Exception ex)
