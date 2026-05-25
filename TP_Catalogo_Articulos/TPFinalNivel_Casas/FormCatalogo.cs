@@ -26,6 +26,11 @@ namespace TPFinalNivel_Casas
         // LOAD
         private void FormCatalogo_Load(object sender, EventArgs e)
         {
+            Cargar();
+        }
+
+        private void Cargar()
+        {
             ArticuloNegocio negocio = new ArticuloNegocio();
 
             try
@@ -67,6 +72,7 @@ namespace TPFinalNivel_Casas
         {
             FrmAltaArticulo alta = new FrmAltaArticulo();
             alta.ShowDialog();
+            Cargar(); // Refresco la grilla con los datos actualizados
         }
     }
 }
