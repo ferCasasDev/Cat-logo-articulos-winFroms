@@ -16,6 +16,8 @@ namespace TPFinalNivel_Casas
 {
     public partial class FormCatalogo : Form
     {
+        private List<Articulo> listaArticulo = new List<Articulo>();
+
         public FormCatalogo()
         {
             InitializeComponent();
@@ -24,15 +26,22 @@ namespace TPFinalNivel_Casas
         // LOAD
         private void FormCatalogo_Load(object sender, EventArgs e)
         {
-            List<Articulo> listaArticulo = new List<Articulo>();
             ArticuloNegocio negocio = new ArticuloNegocio();
-            
-            listaArticulo = negocio.Listar();
-            // Al dataSource del data grid view le asigno la lista.
-            dgvArticulos.DataSource = listaArticulo;
-            dgvArticulos.Columns["UrlImagen"].Visible = false;
-            dgvArticulos.Columns["Id"].Visible = false;
-            CargarImagen(listaArticulo[0].UrlImagen); // cargo la primera imagen
+
+            try
+            {
+                listaArticulo = negocio.Listar();
+                // Al dataSource del data grid view le asigno la lista.
+                dgvArticulos.DataSource = listaArticulo;
+                dgvArticulos.Columns["UrlImagen"].Visible = false;
+                dgvArticulos.Columns["Id"].Visible = false;
+                CargarImagen(listaArticulo[0].UrlImagen); // cargo la primera imagen
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)

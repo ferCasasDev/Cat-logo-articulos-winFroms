@@ -31,6 +31,7 @@ namespace TPFinalNivel_Casas
                 art.Descripcion = txtDescripcion.Text;
                 art.Mar = (Marca)cboMarca.SelectedItem;
                 art.Cate = (Categoria)cboCategoria.SelectedItem;
+                art.Precio = decimal.Parse(txtPrecio.Text);
 
                 negocio.Cargar(art);
                 MessageBox.Show("Artículo cargado exitosamente");
