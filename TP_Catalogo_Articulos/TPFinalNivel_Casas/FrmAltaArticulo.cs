@@ -29,6 +29,8 @@ namespace TPFinalNivel_Casas
                 art.Codigo = txtCodigo.Text; 
                 art.Nombre = txtNombre.Text;
                 art.Descripcion = txtDescripcion.Text;
+                art.Mar = (Marca)cboMarca.SelectedItem;
+                art.Cate = (Categoria)cboCategoria.SelectedItem;
 
                 negocio.Cargar(art);
                 MessageBox.Show("Artículo cargado exitosamente");
