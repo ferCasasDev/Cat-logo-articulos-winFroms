@@ -14,11 +14,11 @@ using Dominio;
 
 namespace TPFinalNivel_Casas
 {
-    public partial class FormCatalogo : Form
+    public partial class FrmCatalogo : Form
     {
         private List<Articulo> listaArticulo = new List<Articulo>();
 
-        public FormCatalogo()
+        public FrmCatalogo()
         {
             InitializeComponent();
         }
@@ -29,6 +29,7 @@ namespace TPFinalNivel_Casas
             Cargar();
         }
 
+        
         private void Cargar()
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
@@ -68,10 +69,24 @@ namespace TPFinalNivel_Casas
             }
         }
 
+
+        // BOTÓN PARA AGREGAR
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             FrmAltaArticulo alta = new FrmAltaArticulo();
             alta.ShowDialog();
+            Cargar(); // Refresco la grilla con los datos actualizados
+        }
+
+
+        // BOTÓN PARA MODIFICAR
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            FrmAltaArticulo modificar = new FrmAltaArticulo(seleccionado);
+            modificar.ShowDialog();
             Cargar(); // Refresco la grilla con los datos actualizados
         }
     }

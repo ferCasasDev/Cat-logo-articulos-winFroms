@@ -16,7 +16,7 @@ namespace TPFinalNivel_Casas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormCatalogo());
+            Application.Run(new FrmCatalogo());
         }
     }
 }

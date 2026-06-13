@@ -186,6 +186,7 @@
             // 
             // pbxArticulos
             // 
+            this.pbxArticulos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pbxArticulos.Location = new System.Drawing.Point(243, 32);
             this.pbxArticulos.Name = "pbxArticulos";
             this.pbxArticulos.Size = new System.Drawing.Size(233, 226);

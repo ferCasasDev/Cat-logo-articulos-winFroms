@@ -14,28 +14,52 @@ namespace TPFinalNivel_Casas
 {
     public partial class FrmAltaArticulo : Form
     {
+        private Articulo articulo = null; // para definir si cargo o modifico
+
         public FrmAltaArticulo()
         {
             InitializeComponent();
         }
 
+        // CONSRUCTOR con parámetros
+        // ya viene con datos
+        public FrmAltaArticulo( Articulo articulo)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
+            Text = "Modificar Artículo";
+        }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Articulo art = new Articulo();
+            
             ArticuloNegocio negocio = new ArticuloNegocio();
 
             try
             {
-                art.Codigo = txtCodigo.Text; 
-                art.Nombre = txtNombre.Text;
-                art.Descripcion = txtDescripcion.Text;
-                art.UrlImagen = txtUrlImagen.Text;
-                art.Mar = (Marca)cboMarca.SelectedItem;
-                art.Cate = (Categoria)cboCategoria.SelectedItem;
-                art.Precio = decimal.Parse(txtPrecio.Text);
+                if (articulo == null)
+                    articulo = new Articulo();
 
-                negocio.Cargar(art);
-                MessageBox.Show("Artículo cargado exitosamente");
+                articulo.Codigo = txtCodigo.Text; 
+                articulo.Nombre = txtNombre.Text;
+                articulo.Descripcion = txtDescripcion.Text;
+                articulo.UrlImagen = txtUrlImagen.Text;
+                articulo.Mar = (Marca)cboMarca.SelectedItem;
+                articulo.Cate = (Categoria)cboCategoria.SelectedItem;
+                articulo.Precio = decimal.Parse(txtPrecio.Text);
+
+                if(articulo.Id != 0)
+                {
+                    negocio.Modificar(articulo);
+                    MessageBox.Show("Artículo modificado exitosamente");
+                }
+                else
+                {
+                    negocio.Agregar(articulo);
+                    MessageBox.Show("Artículo agregado exitosamente");
+                }
+
+                // cierro el formulario
                 Close();
             }
             catch (Exception ex)
@@ -50,8 +74,26 @@ namespace TPFinalNivel_Casas
             CategoriaNegocio catNeg = new CategoriaNegocio();
             try
             {
-                cboMarca.DataSource = marNeg.Listar();
-                cboCategoria.DataSource = catNeg.Listar();
+                cboMarca.DataSource = marNeg.Listar(); // carga de desplegables
+                cboMarca.ValueMember = "Id";  // Nombre de la prop. de Marca : es hiden
+                cboMarca.DisplayMember = "Descripcion"; // Nombre de la prop. de Marca : lo que se ve
+                
+                cboCategoria.DataSource = catNeg.Listar(); 
+                cboCategoria.ValueMember = "Id";
+                cboCategoria.DisplayMember = "Descripcion";
+
+                if (articulo != null) // si es != null, es para modificar y tengo que precargar los datos
+                {
+                    txtCodigo.Text = articulo.Codigo;
+                    txtNombre.Text = articulo.Nombre;
+                    txtDescripcion.Text = articulo.Descripcion;
+                    txtUrlImagen.Text = articulo.UrlImagen;
+                    CargarImagen(articulo.UrlImagen);
+                    cboMarca.SelectedValue = articulo.Mar.Id;
+                    cboCategoria.SelectedValue = articulo.Cate.Id;
+                    txtPrecio.Text = articulo.Precio.ToString();
+                }
+
             }
             catch (Exception ex)
             {

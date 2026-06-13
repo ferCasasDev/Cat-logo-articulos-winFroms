@@ -52,19 +52,19 @@
     <Compile Include="FrmAltaArticulo.Designer.cs">
       <DependentUpon>FrmAltaArticulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCatalogo.cs">
+    <Compile Include="FrmCatalogo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCatalogo.Designer.cs">
-      <DependentUpon>FormCatalogo.cs</DependentUpon>
+    <Compile Include="FrmCatalogo.Designer.cs">
+      <DependentUpon>FrmCatalogo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAltaArticulo.resx">
       <DependentUpon>FrmAltaArticulo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCatalogo.resx">
-      <DependentUpon>FormCatalogo.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCatalogo.resx">
+      <DependentUpon>FrmCatalogo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
