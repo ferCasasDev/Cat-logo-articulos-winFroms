@@ -30,6 +30,7 @@ namespace TPFinalNivel_Casas
         }
 
         
+        //Método que refresca la grilla 
         private void Cargar()
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
@@ -88,6 +89,27 @@ namespace TPFinalNivel_Casas
             FrmAltaArticulo modificar = new FrmAltaArticulo(seleccionado);
             modificar.ShowDialog();
             Cargar(); // Refresco la grilla con los datos actualizados
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado;
+            try
+            {
+                DialogResult resultado = MessageBox.Show("¿Estás seguro de eliminar?", "Eliminando...", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (resultado == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    negocio.Eliminar(seleccionado.Id);
+                    Cargar();
+                }
+                // no necesita else.. si el resultado es No, ciella el diálogo.
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

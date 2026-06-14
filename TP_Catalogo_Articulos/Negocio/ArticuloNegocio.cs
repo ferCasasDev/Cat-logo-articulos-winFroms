@@ -121,7 +121,24 @@ namespace Negocio
             }
         }
 
+        //Método par eliminar (físicamente de la BD)
+        public void Eliminar(int id)
+        {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
 
+                datos.SetearConsulta("delete from ARTICULOS where Id = @id");
+                datos.SetearParametros("@id",id);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
 
     }
 }
