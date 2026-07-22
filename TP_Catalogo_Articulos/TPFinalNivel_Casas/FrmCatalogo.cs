@@ -27,6 +27,13 @@ namespace TPFinalNivel_Casas
         private void FormCatalogo_Load(object sender, EventArgs e)
         {
             Cargar();
+
+            cboCampo.Items.Add("Código");
+            cboCampo.Items.Add("Nombre");
+            cboCampo.Items.Add("Descripción");
+            cboCampo.Items.Add("Marca");
+            cboCampo.Items.Add("Precio");
+
         }
 
         
@@ -40,8 +47,7 @@ namespace TPFinalNivel_Casas
                 listaArticulo = negocio.Listar();
                 // Al dataSource del data grid view le asigno la lista.
                 dgvArticulos.DataSource = listaArticulo;
-                dgvArticulos.Columns["UrlImagen"].Visible = false;
-                dgvArticulos.Columns["Id"].Visible = false;
+                OcultarColumnas();   
                 CargarImagen(listaArticulo[0].UrlImagen); // cargo la primera imagen
             }
             catch (Exception ex)
@@ -51,10 +57,21 @@ namespace TPFinalNivel_Casas
             }
         }
 
+        //Método para ocultar columnas
+        private void OcultarColumnas()
+        {
+            dgvArticulos.Columns["UrlImagen"].Visible = false;
+            dgvArticulos.Columns["Id"].Visible = false;
+        }
+
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            CargarImagen(seleccionado.UrlImagen);            
+            if (dgvArticulos.CurrentRow != null)
+            {
+                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                CargarImagen(seleccionado.UrlImagen);            
+            }
+            
         }
 
         // Método para cargar imágenes
@@ -91,6 +108,7 @@ namespace TPFinalNivel_Casas
             Cargar(); // Refresco la grilla con los datos actualizados
         }
 
+        //BOTÓN ELIMINAR 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
@@ -109,6 +127,66 @@ namespace TPFinalNivel_Casas
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        //BOTÓN FILTRO [Buscar] --> lo dejamos para un filtro más avanzado
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string filtro = txtFiltro.Text;
+
+            if (filtro.Length >= 3) // Si tiene 3 o más caracteres, filtra, sino lista completa
+            {
+                listaFiltrada = listaArticulo.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Mar.Descripcion.ToUpper().Contains(filtro.ToUpper())); // función Lambda : para comparar y buscar por Nombre, Descripción o Marca. 
+            }
+            else
+            {
+                listaFiltrada = listaArticulo;
+            }
+
+            dgvArticulos.DataSource = null; // limpiamos la lista
+            dgvArticulos.DataSource = listaFiltrada;
+            OcultarColumnas();
+        }
+        
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+
+            try
+            {
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = txtFiltroAvanzado.Text;
+                dgvArticulos.DataSource = negocio.Filtrar(campo, criterio, filtro);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+
+
+        }
+
+        private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = cboCampo.SelectedItem.ToString();
+            
+            if (opcion == "Precio")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Mayor a: ");
+                cboCriterio.Items.Add("Menor a: ");
+                cboCriterio.Items.Add("Igual a: ");
+            }
+            else
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Comienza con: ");
+                cboCriterio.Items.Add("Termina con: ");
+                cboCriterio.Items.Add("Contiene: ");
             }
         }
     }

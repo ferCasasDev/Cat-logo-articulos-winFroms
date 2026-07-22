@@ -140,5 +140,134 @@ namespace Negocio
 
         }
 
+        public List<Articulo> Filtrar(string campo, string criterio, string filtro)
+        {
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                /*
+                    cboCampo.Items.Add("Código"); v
+                    cboCampo.Items.Add("Nombre"); v
+                    cboCampo.Items.Add("Descripción"); v
+                    cboCampo.Items.Add("Marca"); v
+                    cboCampo.Items.Add("Precio");
+                 */
+                string consulta = "select A.Id, A.Codigo, A.Nombre, A.Descripcion, ImagenUrl, A.IdMarca, M.Descripcion Marca, A.IdCAtegoria, C.Descripcion Categoria, A.Precio from ARTICULOS A, MARCAS M, CATEGORIAS C where A.IdCategoria = C.Id and A.IdMarca = M.Id and ";
+                
+                if (campo == "Código")
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con: ":
+                            consulta += "A.Codigo like '" + filtro + "%'";
+                            break;
+                        case "Termina con: ":
+                            consulta += "A.Codigo like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "A.Codigo like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                else if (campo == "Nombre")
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con: ":
+                            consulta += "A.Nombre like '" + filtro + "%'";
+                            break;
+                        case "Termina con: ":
+                            consulta += "A.Nombre like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "A.Nombre like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                else if (campo == "Descripción")
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con: ":
+                            consulta += "A.Descripcion like '" + filtro + "%'";
+                            break;
+                        case "Termina con: ":
+                            consulta += "A.Descripcion like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "A.Descripcion like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                else if (campo == "Marca")
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con: ":
+                            consulta += "A.Marca like '" + filtro + "%'";
+                            break;
+                        case "Termina con: ":
+                            consulta += "A.Marca like '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "A.Marca like '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (criterio)
+                    {
+                        case "Mayor a: ":
+                            consulta += "A.Precio > " + filtro;
+                            break;
+                        case "Menor a: ":
+                            consulta += "A.Precio < " + filtro;
+                            break;
+                        default:
+                            consulta += "A.Precio = " + filtro;
+                            break;
+                    }
+
+                }
+                
+                datos.SetearConsulta(consulta);
+                datos.EjecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+
+                    // valido que el campo ImagenUrl no esté DBNULL
+                    if (!(datos.Lector["ImagenUrl"] is DBNull))
+                        aux.UrlImagen = (string)datos.Lector["ImagenUrl"];
+                    // si encuetra un DBNULL deja el campo con un string vacío
+
+                    aux.Mar = new Marca();
+                    aux.Mar.Id = (int)datos.Lector["IdMarca"];
+                    aux.Mar.Descripcion = (string)datos.Lector["Marca"];
+                    aux.Cate = new Categoria();
+                    aux.Cate.Id = (int)datos.Lector["IdCategoria"];
+                    aux.Cate.Descripcion = (string)datos.Lector["Categoria"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+
+                    lista.Add(aux);
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }
