@@ -140,6 +140,7 @@ namespace Negocio
 
         }
 
+        //Método para Filtrar Avanzado
         public List<Articulo> Filtrar(string campo, string criterio, string filtro)
         {
             List<Articulo> lista = new List<Articulo>();

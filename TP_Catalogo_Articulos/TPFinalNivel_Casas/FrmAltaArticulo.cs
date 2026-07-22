@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Negocio;
+using System.Configuration;
 
 namespace TPFinalNivel_Casas
 {
     public partial class FrmAltaArticulo : Form
     {
         private Articulo articulo = null; // para definir si cargo o modifico
+
+        private OpenFileDialog archivo = null;
 
         public FrmAltaArticulo()
         {
@@ -46,7 +50,7 @@ namespace TPFinalNivel_Casas
                 articulo.UrlImagen = txtUrlImagen.Text;
                 articulo.Mar = (Marca)cboMarca.SelectedItem;
                 articulo.Cate = (Categoria)cboCategoria.SelectedItem;
-                articulo.Precio = decimal.Parse(txtPrecio.Text);
+                articulo.Precio = decimal.Parse(txtPrecio.Text); //validar
 
                 if(articulo.Id != 0)
                 {
@@ -58,6 +62,11 @@ namespace TPFinalNivel_Casas
                     negocio.Agregar(articulo);
                     MessageBox.Show("Artículo agregado exitosamente");
                 }
+
+                //Guardar la imagen si levanta localmente:
+                if (archivo != null && !(txtUrlImagen.Text.ToUpper().Contains("HTTP")))
+                    File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
+
 
                 // cierro el formulario
                 Close();
@@ -116,6 +125,21 @@ namespace TPFinalNivel_Casas
             catch (Exception ex)
             {
                 pbxArticulos.Load("https://as2.ftcdn.net/jpg/01/07/43/45/220_F_107434511_iarF2z88c6Ds6AlgtwotHSAktWCdYOn7.jpg");
+            }
+        }
+
+        private void btnAgregarImagen_Click(object sender, EventArgs e)
+        {
+            archivo = new OpenFileDialog();
+            archivo.Filter = "Imágenes|*.jpg;*.png";
+
+            if (archivo.ShowDialog() == DialogResult.OK)
+            {
+                txtUrlImagen.Text = "C:\\articulos-app\\" + archivo.SafeFileName;
+                CargarImagen(archivo.FileName);
+
+                //voy a gaurdar la imagen directamente...
+                //File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
             }
         }
     }
