@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Negocio;
 using Dominio;
+using System.Xml.Serialization;
 
 
 
@@ -23,20 +24,19 @@ namespace TPFinalNivel_Casas
             InitializeComponent();
         }
 
+        
         // LOAD
         private void FormCatalogo_Load(object sender, EventArgs e)
         {
             Cargar();
-
-            cboCampo.Items.Add("Código");
             cboCampo.Items.Add("Nombre");
             cboCampo.Items.Add("Descripción");
             cboCampo.Items.Add("Marca");
             cboCampo.Items.Add("Precio");
 
         }
-
         
+
         //Método que refresca la grilla 
         private void Cargar()
         {
@@ -62,6 +62,8 @@ namespace TPFinalNivel_Casas
         {
             dgvArticulos.Columns["UrlImagen"].Visible = false;
             dgvArticulos.Columns["Id"].Visible = false;
+            dgvArticulos.Columns["Codigo"].Visible = false;
+            dgvArticulos.Columns["Cate"].Visible = false;
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
@@ -149,13 +151,59 @@ namespace TPFinalNivel_Casas
             dgvArticulos.DataSource = listaFiltrada;
             OcultarColumnas();
         }
-        
+
+        //Método para validar Filtro 
+        private bool ValidarFiltro()
+        {
+            if (cboCampo.SelectedIndex < 0) // si tengo algo seleccionado en el cbo.
+            {
+                MessageBox.Show("Por favor seleccione el CAMPO");
+                return true; //si, validamos
+            }
+
+            if (cboCriterio.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor seleccione el CRITERIO");
+                return true;
+            }
+
+            if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
+            {
+                txtFiltroAvanzado.Text = "COMPLETAR CAMPO";
+                txtFiltroAvanzado.ForeColor = Color.Red;
+
+                //MessageBox.Show("Completar el filtro");
+                return true;
+            }
+
+            if (cboCampo.SelectedItem.ToString() == "Precio")
+            {
+                if (!(SoloNumeros(txtFiltroAvanzado.Text)))
+                {
+                    MessageBox.Show("Solo Números para filtrar");
+                    return true;
+                }
+            }
+
+            return false; //no validamos
+        }
+
+        // Valida que solo haya números en el txtFiltroAvanzado
+        private bool SoloNumeros(string cadena)
+        {
+            return decimal.TryParse(cadena, out _); 
+            // intenta convertir un número real, que no contenga otra cosa
+        }
+
         private void btnFiltro_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
 
             try
             {
+                if (ValidarFiltro())
+                    return; // corto la ejecución del void btmFiltro_Click()
+
                 string campo = cboCampo.SelectedItem.ToString();
                 string criterio = cboCriterio.SelectedItem.ToString();
                 string filtro = txtFiltroAvanzado.Text;
@@ -165,9 +213,6 @@ namespace TPFinalNivel_Casas
             {
                 MessageBox.Show(ex.ToString());
             }
-
-
-
         }
 
         private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
@@ -187,6 +232,16 @@ namespace TPFinalNivel_Casas
                 cboCriterio.Items.Add("Comienza con: ");
                 cboCriterio.Items.Add("Termina con: ");
                 cboCriterio.Items.Add("Contiene: ");
+            }
+        }
+
+        // resetea el txtFiltroAavanzado
+        private void txtFiltroAvanzado_Click(object sender, EventArgs e)
+        {
+            if (txtFiltroAvanzado.Text == "COMPLETAR CAMPO")
+            {
+                txtFiltroAvanzado.Text = "";
+                txtFiltroAvanzado.ForeColor = Color.Black;
             }
         }
     }

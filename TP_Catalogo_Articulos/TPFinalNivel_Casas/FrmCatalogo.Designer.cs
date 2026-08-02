@@ -103,7 +103,7 @@
             // lblFiltro
             // 
             this.lblFiltro.AutoSize = true;
-            this.lblFiltro.Location = new System.Drawing.Point(22, 22);
+            this.lblFiltro.Location = new System.Drawing.Point(11, 22);
             this.lblFiltro.Name = "lblFiltro";
             this.lblFiltro.Size = new System.Drawing.Size(35, 13);
             this.lblFiltro.TabIndex = 5;
@@ -111,7 +111,7 @@
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(63, 20);
+            this.txtFiltro.Location = new System.Drawing.Point(52, 20);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(176, 20);
             this.txtFiltro.TabIndex = 6;
@@ -188,12 +188,13 @@
             this.txtFiltroAvanzado.Name = "txtFiltroAvanzado";
             this.txtFiltroAvanzado.Size = new System.Drawing.Size(127, 20);
             this.txtFiltroAvanzado.TabIndex = 14;
+            this.txtFiltroAvanzado.Click += new System.EventHandler(this.txtFiltroAvanzado_Click);
             // 
             // FrmCatalogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 476);
+            this.ClientSize = new System.Drawing.Size(961, 591);
             this.Controls.Add(this.txtFiltroAvanzado);
             this.Controls.Add(this.lblFiltroAvanzado);
             this.Controls.Add(this.cboCriterio);

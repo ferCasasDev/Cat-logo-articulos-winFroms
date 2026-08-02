@@ -157,22 +157,22 @@ namespace Negocio
                  */
                 string consulta = "select A.Id, A.Codigo, A.Nombre, A.Descripcion, ImagenUrl, A.IdMarca, M.Descripcion Marca, A.IdCAtegoria, C.Descripcion Categoria, A.Precio from ARTICULOS A, MARCAS M, CATEGORIAS C where A.IdCategoria = C.Id and A.IdMarca = M.Id and ";
                 
-                if (campo == "Código")
-                {
-                    switch (criterio)
-                    {
-                        case "Comienza con: ":
-                            consulta += "A.Codigo like '" + filtro + "%'";
-                            break;
-                        case "Termina con: ":
-                            consulta += "A.Codigo like '%" + filtro + "'";
-                            break;
-                        default:
-                            consulta += "A.Codigo like '%" + filtro + "%'";
-                            break;
-                    }
-                }
-                else if (campo == "Nombre")
+                //if (campo == "Código")
+                //{
+                //    switch (criterio)
+                //    {
+                //        case "Comienza con: ":
+                //            consulta += "A.Codigo like '" + filtro + "%'";
+                //            break;
+                //        case "Termina con: ":
+                //            consulta += "A.Codigo like '%" + filtro + "'";
+                //            break;
+                //        default:
+                //            consulta += "A.Codigo like '%" + filtro + "%'";
+                //            break;
+                //    }
+                //}
+                if (campo == "Nombre")
                 {
                     switch (criterio)
                     {
