@@ -33,7 +33,6 @@ namespace TPFinalNivel_Casas
             cboCampo.Items.Add("Descripción");
             cboCampo.Items.Add("Marca");
             cboCampo.Items.Add("Precio");
-
         }
         
 
@@ -48,7 +47,7 @@ namespace TPFinalNivel_Casas
                 // Al dataSource del data grid view le asigno la lista.
                 dgvArticulos.DataSource = listaArticulo;
                 OcultarColumnas();   
-                CargarImagen(listaArticulo[0].UrlImagen); // cargo la primera imagen
+                //CargarImagen(listaArticulo[0].UrlImagen); // cargo la primera imagen
             }
             catch (Exception ex)
             {
@@ -66,28 +65,28 @@ namespace TPFinalNivel_Casas
             dgvArticulos.Columns["Cate"].Visible = false;
         }
 
-        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvArticulos.CurrentRow != null)
-            {
-                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                CargarImagen(seleccionado.UrlImagen);            
-            }
+        //private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+        //{
+        //    if (dgvArticulos.CurrentRow != null)
+        //    {
+        //        Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+        //        CargarImagen(seleccionado.UrlImagen);            
+        //    }
             
-        }
+        //}
 
         // Método para cargar imágenes
-        public void CargarImagen(string imagen)
-        {
-            try
-            {
-                pbxArticulos.Load(imagen);
-            }
-            catch (Exception ex)
-            {
-                pbxArticulos.Load("https://as2.ftcdn.net/jpg/01/07/43/45/220_F_107434511_iarF2z88c6Ds6AlgtwotHSAktWCdYOn7.jpg");
-            }
-        }
+        //public void CargarImagen(string imagen)
+        //{
+        //    try
+        //    {
+        //        pbxArticulos.Load(imagen);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        pbxArticulos.Load("https://as2.ftcdn.net/jpg/01/07/43/45/220_F_107434511_iarF2z88c6Ds6AlgtwotHSAktWCdYOn7.jpg");
+        //    }
+        //}
 
 
         // BOTÓN PARA AGREGAR
@@ -243,6 +242,21 @@ namespace TPFinalNivel_Casas
                 txtFiltroAvanzado.Text = "";
                 txtFiltroAvanzado.ForeColor = Color.Black;
             }
+        }
+
+        // limpita el txtFiltro 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtFiltro.Text = "";
+        }
+
+        private void btnVerMas_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado = new Articulo();
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem; 
+            
+            FrmProductCard formDetalles = new FrmProductCard(seleccionado);
+            formDetalles.ShowDialog();
         }
     }
 }
