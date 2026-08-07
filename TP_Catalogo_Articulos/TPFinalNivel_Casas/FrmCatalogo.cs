@@ -61,6 +61,7 @@ namespace TPFinalNivel_Casas
         {
             dgvArticulos.Columns["UrlImagen"].Visible = false;
             dgvArticulos.Columns["Id"].Visible = false;
+            dgvArticulos.Columns["Descripcion"].Visible = false;
             dgvArticulos.Columns["Codigo"].Visible = false;
             dgvArticulos.Columns["Cate"].Visible = false;
         }
@@ -257,6 +258,11 @@ namespace TPFinalNivel_Casas
             
             FrmProductCard formDetalles = new FrmProductCard(seleccionado);
             formDetalles.ShowDialog();
+        }
+
+        private void chkFiltroAvanzado_CheckedChanged(object sender, EventArgs e)
+        {
+            pnlFiltroAvanzado.Enabled = chkFiltroAvanzado.Checked;
         }
     }
 }
