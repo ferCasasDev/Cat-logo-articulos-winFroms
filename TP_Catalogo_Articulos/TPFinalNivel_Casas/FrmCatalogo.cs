@@ -30,7 +30,6 @@ namespace TPFinalNivel_Casas
         {
             Cargar();
             cboCampo.Items.Add("Nombre");
-            cboCampo.Items.Add("Descripción");
             cboCampo.Items.Add("Marca");
             cboCampo.Items.Add("Precio");
         }
@@ -169,10 +168,10 @@ namespace TPFinalNivel_Casas
 
             if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
             {
-                txtFiltroAvanzado.Text = "COMPLETAR CAMPO";
-                txtFiltroAvanzado.ForeColor = Color.Red;
+                txtFiltroAvanzado.ForeColor = Color.OrangeRed;
+                txtFiltroAvanzado.Text = "Completar Campo";
+                btnFiltro.Enabled = false;
 
-                //MessageBox.Show("Completar el filtro");
                 return true;
             }
 
@@ -192,9 +191,10 @@ namespace TPFinalNivel_Casas
         private bool SoloNumeros(string cadena)
         {
             return decimal.TryParse(cadena, out _); 
-            // intenta convertir un número real, que no contenga otra cosa
+            // intenta convertir la cadena a un número real, que no contenga otra cosa
         }
 
+        // Botón que filtra contra Base de Datos
         private void btnFiltro_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
@@ -207,6 +207,9 @@ namespace TPFinalNivel_Casas
                 string campo = cboCampo.SelectedItem.ToString();
                 string criterio = cboCriterio.SelectedItem.ToString();
                 string filtro = txtFiltroAvanzado.Text;
+                
+                //txtFiltroAvanzado.Enabled = true;  << OJO ACÁ
+
                 dgvArticulos.DataSource = negocio.Filtrar(campo, criterio, filtro);
             }
             catch (Exception ex)
@@ -215,16 +218,37 @@ namespace TPFinalNivel_Casas
             }
         }
 
+        // Selección por ComboBox
         private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
         {
             string opcion = cboCampo.SelectedItem.ToString();
-            
+            cboCriterio.DataSource = null;
+            cboCriterio.Items.Clear();
+            txtFiltroAvanzado.Text = string.Empty;
+
             if (opcion == "Precio")
             {
                 cboCriterio.Items.Clear();
                 cboCriterio.Items.Add("Mayor a: ");
                 cboCriterio.Items.Add("Menor a: ");
                 cboCriterio.Items.Add("Igual a: ");
+            }
+            else if (opcion == "Marca")
+            {
+                // acá se carga el cboMarca con las marcas de la Base de datos 
+
+                MarcaNegocio marNegocio = new MarcaNegocio();
+
+                try
+                {
+                    cboCriterio.DataSource = marNegocio.Listar();
+                    cboCriterio.ValueMember = "Id";
+                    cboCriterio.DisplayMember = "Descripcion";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
             else
             {
@@ -235,12 +259,27 @@ namespace TPFinalNivel_Casas
             }
         }
 
+        private void cboCriterio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboCampo.SelectedItem.ToString() == "Marca")
+            {
+                txtFiltroAvanzado.Text = cboCriterio.SelectedItem.ToString();
+                txtFiltroAvanzado.Enabled = false;
+            }
+            else
+            {
+                txtFiltroAvanzado.Enabled = true;
+                cboCriterio.DataSource = null;
+            }
+        }
+
         // resetea el txtFiltroAavanzado
         private void txtFiltroAvanzado_Click(object sender, EventArgs e)
         {
-            if (txtFiltroAvanzado.Text == "COMPLETAR CAMPO")
+            if (txtFiltroAvanzado.Text == "Completar Campo")
             {
-                txtFiltroAvanzado.Text = "";
+                txtFiltroAvanzado.Text = string.Empty;
+                btnFiltro.Enabled = true;
                 txtFiltroAvanzado.ForeColor = Color.Black;
             }
         }
@@ -248,9 +287,10 @@ namespace TPFinalNivel_Casas
         // limpita el txtFiltro 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            txtFiltro.Text = "";
+            txtFiltro.Text = string.Empty;
         }
 
+        // Botón que muestra los detalles completos del producto
         private void btnVerMas_Click(object sender, EventArgs e)
         {
             Articulo seleccionado = new Articulo();
@@ -260,9 +300,12 @@ namespace TPFinalNivel_Casas
             formDetalles.ShowDialog();
         }
 
+        // Panel de Filtro Avanzado
         private void chkFiltroAvanzado_CheckedChanged(object sender, EventArgs e)
         {
+            // retorna tru o false según esté seleccionado...  
             pnlFiltroAvanzado.Enabled = chkFiltroAvanzado.Checked;
         }
+
     }
 }
