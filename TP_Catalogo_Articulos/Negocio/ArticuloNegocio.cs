@@ -148,74 +148,27 @@ namespace Negocio
 
             try
             {
-                /*
-                    cboCampo.Items.Add("Código"); v
-                    cboCampo.Items.Add("Nombre"); v
-                    cboCampo.Items.Add("Descripción"); v
-                    cboCampo.Items.Add("Marca"); v
-                    cboCampo.Items.Add("Precio");
-                 */
+
                 string consulta = "select A.Id, A.Codigo, A.Nombre, A.Descripcion, ImagenUrl, A.IdMarca, M.Descripcion Marca, A.IdCAtegoria, C.Descripcion Categoria, A.Precio from ARTICULOS A, MARCAS M, CATEGORIAS C where A.IdCategoria = C.Id and A.IdMarca = M.Id and ";
                 
-                //if (campo == "Código")
-                //{
-                //    switch (criterio)
-                //    {
-                //        case "Comienza con: ":
-                //            consulta += "A.Codigo like '" + filtro + "%'";
-                //            break;
-                //        case "Termina con: ":
-                //            consulta += "A.Codigo like '%" + filtro + "'";
-                //            break;
-                //        default:
-                //            consulta += "A.Codigo like '%" + filtro + "%'";
-                //            break;
-                //    }
-                //}
                 if (campo == "Nombre")
                 {
                     switch (criterio)
                     {
-                        case "Comienza con: ":
-                            consulta += "A.Nombre like '" + filtro + "%'";
+                        case "comienza con: ":
+                            consulta += "a.nombre like '" + filtro + "%'";
                             break;
-                        case "Termina con: ":
-                            consulta += "A.Nombre like '%" + filtro + "'";
-                            break;
-                        default:
-                            consulta += "A.Nombre like '%" + filtro + "%'";
-                            break;
-                    }
-                }
-                else if (campo == "Descripción")
-                {
-                    switch (criterio)
-                    {
-                        case "Comienza con: ":
-                            consulta += "A.Descripcion like '" + filtro + "%'";
-                            break;
-                        case "Termina con: ":
-                            consulta += "A.Descripcion like '%" + filtro + "'";
+                        case "termina con: ":
+                            consulta += "a.nombre like '%" + filtro + "'";
                             break;
                         default:
-                            consulta += "A.Descripcion like '%" + filtro + "%'";
+                            consulta += "a.nombre like '%" + filtro + "%'";
                             break;
                     }
                 }
                 else if (campo == "Marca")
                 {
-                    switch (criterio)
-                    {
-                        case "Comienza con: ":
-                            consulta += "A.Marca like '" + filtro + "%'";
-                            break;
-                        case "Termina con: ":
-                            consulta += "A.Marca like '%" + filtro + "'";
-                            break;
-                        default:
-                            consulta += "A.Marca like '%" + filtro + "%'";
-                            break;
-                    }
+                    consulta += " M.Descripcion LIKE '" + filtro + "'";
                 }
                 else
                 {

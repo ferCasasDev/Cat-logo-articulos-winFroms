@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Negocio;
 using Dominio;
 using System.Xml.Serialization;
+using TPFinalNivel_Casas.UI;
 
 
 
@@ -25,9 +26,23 @@ namespace TPFinalNivel_Casas
         }
 
         
-        // LOAD
+        // LOAD FORMULARIO
         private void FormCatalogo_Load(object sender, EventArgs e)
         {
+            // Formulario
+            EstilosUI.ConfigurarFormulario(this);
+            
+            //Botón Principal
+            EstilosUI.ConfigurarBotoPrincipal(btnAgregar, 435, 69);
+            EstilosUI.ConfigurarBotoPrincipal(btnModificar, 435, 119);
+            EstilosUI.ConfigurarBotoPrincipal(btnEliminar, 435, 169);
+
+            //Botón Secundario
+            EstilosUI.ConfigurarBotoSecundario(btnLimpiar, 280, 18);
+            EstilosUI.ConfigurarBotoSecundario(btnVerMas, 280, 345);
+            EstilosUI.ConfigurarBotoSecundario(btnFiltro, 258, 48);
+
+            
             Cargar();
             cboCampo.Items.Add("Nombre");
             cboCampo.Items.Add("Marca");
@@ -288,6 +303,7 @@ namespace TPFinalNivel_Casas
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             txtFiltro.Text = string.Empty;
+            Cargar();
         }
 
         // Botón que muestra los detalles completos del producto

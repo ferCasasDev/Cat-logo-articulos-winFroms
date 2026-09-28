@@ -53,11 +53,11 @@
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvArticulos.Location = new System.Drawing.Point(31, 56);
+            this.dgvArticulos.Location = new System.Drawing.Point(30, 69);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(364, 265);
+            this.dgvArticulos.Size = new System.Drawing.Size(365, 265);
             this.dgvArticulos.TabIndex = 0;
             // 
             // btnAgregar
@@ -93,17 +93,19 @@
             // lblFiltro
             // 
             this.lblFiltro.AutoSize = true;
+            this.lblFiltro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFiltro.Location = new System.Drawing.Point(30, 22);
             this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(35, 13);
+            this.lblFiltro.Size = new System.Drawing.Size(53, 21);
             this.lblFiltro.TabIndex = 5;
             this.lblFiltro.Text = "Filtro: ";
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(71, 20);
+            this.txtFiltro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltro.Location = new System.Drawing.Point(80, 18);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(233, 20);
+            this.txtFiltro.Size = new System.Drawing.Size(191, 29);
             this.txtFiltro.TabIndex = 6;
             this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
@@ -120,55 +122,62 @@
             // lblCampo
             // 
             this.lblCampo.AutoSize = true;
+            this.lblCampo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCampo.Location = new System.Drawing.Point(5, 17);
             this.lblCampo.Name = "lblCampo";
-            this.lblCampo.Size = new System.Drawing.Size(43, 13);
+            this.lblCampo.Size = new System.Drawing.Size(53, 17);
             this.lblCampo.TabIndex = 9;
             this.lblCampo.Text = "Campo:";
             // 
             // cboCampo
             // 
             this.cboCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCampo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCampo.FormattingEnabled = true;
-            this.cboCampo.Location = new System.Drawing.Point(57, 14);
+            this.cboCampo.Location = new System.Drawing.Point(71, 14);
             this.cboCampo.Name = "cboCampo";
-            this.cboCampo.Size = new System.Drawing.Size(154, 21);
+            this.cboCampo.Size = new System.Drawing.Size(154, 25);
             this.cboCampo.TabIndex = 10;
             this.cboCampo.SelectedIndexChanged += new System.EventHandler(this.cboCampo_SelectedIndexChanged);
             // 
             // cboCriterio
             // 
             this.cboCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCriterio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCriterio.FormattingEnabled = true;
-            this.cboCriterio.Location = new System.Drawing.Point(57, 53);
+            this.cboCriterio.Location = new System.Drawing.Point(71, 53);
             this.cboCriterio.Name = "cboCriterio";
-            this.cboCriterio.Size = new System.Drawing.Size(154, 21);
+            this.cboCriterio.Size = new System.Drawing.Size(154, 25);
             this.cboCriterio.TabIndex = 12;
             this.cboCriterio.SelectedIndexChanged += new System.EventHandler(this.cboCriterio_SelectedIndexChanged);
             // 
             // lblCriterio
             // 
             this.lblCriterio.AutoSize = true;
+            this.lblCriterio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCriterio.Location = new System.Drawing.Point(6, 56);
             this.lblCriterio.Name = "lblCriterio";
-            this.lblCriterio.Size = new System.Drawing.Size(45, 13);
+            this.lblCriterio.Size = new System.Drawing.Size(58, 17);
             this.lblCriterio.TabIndex = 11;
             this.lblCriterio.Text = "Criterio: ";
             // 
             // lblFiltroAvanzado
             // 
             this.lblFiltroAvanzado.AutoSize = true;
+            this.lblFiltroAvanzado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFiltroAvanzado.Location = new System.Drawing.Point(16, 96);
             this.lblFiltroAvanzado.Name = "lblFiltroAvanzado";
-            this.lblFiltroAvanzado.Size = new System.Drawing.Size(32, 13);
+            this.lblFiltroAvanzado.Size = new System.Drawing.Size(40, 17);
             this.lblFiltroAvanzado.TabIndex = 13;
             this.lblFiltroAvanzado.Text = "Filtro:";
             // 
             // txtFiltroAvanzado
             // 
-            this.txtFiltroAvanzado.Location = new System.Drawing.Point(57, 93);
+            this.txtFiltroAvanzado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltroAvanzado.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtFiltroAvanzado.Location = new System.Drawing.Point(71, 93);
             this.txtFiltroAvanzado.Name = "txtFiltroAvanzado";
-            this.txtFiltroAvanzado.Size = new System.Drawing.Size(154, 20);
+            this.txtFiltroAvanzado.Size = new System.Drawing.Size(154, 25);
             this.txtFiltroAvanzado.TabIndex = 14;
             this.txtFiltroAvanzado.Click += new System.EventHandler(this.txtFiltroAvanzado_Click);
             // 
@@ -192,17 +201,18 @@
             this.pnlFiltroAvanzado.Controls.Add(this.lblCriterio);
             this.pnlFiltroAvanzado.Controls.Add(this.cboCriterio);
             this.pnlFiltroAvanzado.Enabled = false;
-            this.pnlFiltroAvanzado.Location = new System.Drawing.Point(31, 406);
+            this.pnlFiltroAvanzado.Location = new System.Drawing.Point(30, 437);
             this.pnlFiltroAvanzado.Name = "pnlFiltroAvanzado";
-            this.pnlFiltroAvanzado.Size = new System.Drawing.Size(364, 128);
+            this.pnlFiltroAvanzado.Size = new System.Drawing.Size(364, 144);
             this.pnlFiltroAvanzado.TabIndex = 16;
             // 
             // chkFiltroAvanzado
             // 
             this.chkFiltroAvanzado.AutoSize = true;
-            this.chkFiltroAvanzado.Location = new System.Drawing.Point(31, 383);
+            this.chkFiltroAvanzado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFiltroAvanzado.Location = new System.Drawing.Point(30, 399);
             this.chkFiltroAvanzado.Name = "chkFiltroAvanzado";
-            this.chkFiltroAvanzado.Size = new System.Drawing.Size(97, 17);
+            this.chkFiltroAvanzado.Size = new System.Drawing.Size(133, 25);
             this.chkFiltroAvanzado.TabIndex = 17;
             this.chkFiltroAvanzado.Text = "Fitro Avanzado";
             this.chkFiltroAvanzado.UseVisualStyleBackColor = true;
@@ -210,7 +220,7 @@
             // 
             // btnVerMas
             // 
-            this.btnVerMas.Location = new System.Drawing.Point(320, 327);
+            this.btnVerMas.Location = new System.Drawing.Point(320, 340);
             this.btnVerMas.Name = "btnVerMas";
             this.btnVerMas.Size = new System.Drawing.Size(75, 23);
             this.btnVerMas.TabIndex = 18;
@@ -222,7 +232,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 609);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(584, 611);
             this.Controls.Add(this.btnVerMas);
             this.Controls.Add(this.chkFiltroAvanzado);
             this.Controls.Add(this.pnlFiltroAvanzado);
@@ -233,6 +244,7 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvArticulos);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "FrmCatalogo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión de Artículos";
