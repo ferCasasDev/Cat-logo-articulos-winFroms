@@ -33,15 +33,17 @@ namespace TPFinalNivel_Casas
             EstilosUI.ConfigurarFormulario(this);
             
             //Botón Principal
-            EstilosUI.ConfigurarBotoPrincipal(btnAgregar, 435, 69);
-            EstilosUI.ConfigurarBotoPrincipal(btnModificar, 435, 119);
-            EstilosUI.ConfigurarBotoPrincipal(btnEliminar, 435, 169);
+            EstilosUI.ConfigurarBotonPrincipal(btnAgregar, 435, 69);
+            EstilosUI.ConfigurarBotonPrincipal(btnModificar, 435, 119);
+            EstilosUI.ConfigurarBotonPrincipal(btnEliminar, 435, 169);
 
             //Botón Secundario
-            EstilosUI.ConfigurarBotoSecundario(btnLimpiar, 280, 18);
-            EstilosUI.ConfigurarBotoSecundario(btnVerMas, 280, 345);
-            EstilosUI.ConfigurarBotoSecundario(btnFiltro, 258, 48);
+            EstilosUI.ConfigurarBotonSecundario(btnLimpiar, 280, 18);
+            EstilosUI.ConfigurarBotonSecundario(btnVerMas, 280, 345);
+            EstilosUI.ConfigurarBotonSecundario(btnFiltro, 258, 48);
 
+            //Text Box
+            EstilosUI.ConfigurarTextBox(txtFiltro,pnlFiltro);
             
             Cargar();
             cboCampo.Items.Add("Nombre");

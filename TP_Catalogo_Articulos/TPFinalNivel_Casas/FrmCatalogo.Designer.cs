@@ -45,8 +45,10 @@
             this.pnlFiltroAvanzado = new System.Windows.Forms.Panel();
             this.chkFiltroAvanzado = new System.Windows.Forms.CheckBox();
             this.btnVerMas = new System.Windows.Forms.Button();
+            this.pnlFiltro = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.pnlFiltroAvanzado.SuspendLayout();
+            this.pnlFiltro.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvArticulos
@@ -103,7 +105,7 @@
             // txtFiltro
             // 
             this.txtFiltro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFiltro.Location = new System.Drawing.Point(80, 18);
+            this.txtFiltro.Location = new System.Drawing.Point(0, 0);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(191, 29);
             this.txtFiltro.TabIndex = 6;
@@ -228,17 +230,25 @@
             this.btnVerMas.UseVisualStyleBackColor = true;
             this.btnVerMas.Click += new System.EventHandler(this.btnVerMas_Click);
             // 
+            // pnlFiltro
+            // 
+            this.pnlFiltro.Controls.Add(this.txtFiltro);
+            this.pnlFiltro.Location = new System.Drawing.Point(78, 18);
+            this.pnlFiltro.Name = "pnlFiltro";
+            this.pnlFiltro.Size = new System.Drawing.Size(191, 33);
+            this.pnlFiltro.TabIndex = 19;
+            // 
             // FrmCatalogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(584, 611);
+            this.Controls.Add(this.pnlFiltro);
             this.Controls.Add(this.btnVerMas);
             this.Controls.Add(this.chkFiltroAvanzado);
             this.Controls.Add(this.pnlFiltroAvanzado);
             this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
@@ -252,6 +262,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             this.pnlFiltroAvanzado.ResumeLayout(false);
             this.pnlFiltroAvanzado.PerformLayout();
+            this.pnlFiltro.ResumeLayout(false);
+            this.pnlFiltro.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,6 +288,7 @@
         private System.Windows.Forms.Panel pnlFiltroAvanzado;
         private System.Windows.Forms.CheckBox chkFiltroAvanzado;
         private System.Windows.Forms.Button btnVerMas;
+        private System.Windows.Forms.Panel pnlFiltro;
     }
 }
 
