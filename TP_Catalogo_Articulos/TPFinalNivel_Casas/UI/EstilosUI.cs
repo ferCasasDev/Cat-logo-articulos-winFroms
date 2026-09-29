@@ -31,6 +31,9 @@ namespace TPFinalNivel_Casas.UI
             textBox.ForeColor = Color.FromArgb(45, 45, 45);
             textBox.Font = new Font("Segoe UI", 12F);
 
+            textBox.Multiline = true;
+            textBox.Height = 27;
+
             panel.BackColor = colorBorde;
             panel.Height = textBox.Height + 3;
 
@@ -47,6 +50,12 @@ namespace TPFinalNivel_Casas.UI
             textBox.Leave += (Sender, e) =>
             {
                 panel.BackColor = Color.FromArgb(180, 180, 180);
+            };
+
+            textBox.KeyPress += (Sender, e) =>
+            {
+                if (e.KeyChar == '\r') // si damos enter
+                    e.Handled = true;
             };
 
         }
