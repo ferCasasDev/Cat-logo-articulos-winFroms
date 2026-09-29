@@ -46,9 +46,11 @@
             this.chkFiltroAvanzado = new System.Windows.Forms.CheckBox();
             this.btnVerMas = new System.Windows.Forms.Button();
             this.pnlFiltro = new System.Windows.Forms.Panel();
+            this.pnlFiltroTextoAvanzado = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.pnlFiltroAvanzado.SuspendLayout();
             this.pnlFiltro.SuspendLayout();
+            this.pnlFiltroTextoAvanzado.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvArticulos
@@ -107,7 +109,7 @@
             this.txtFiltro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFiltro.Location = new System.Drawing.Point(0, 0);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(191, 29);
+            this.txtFiltro.Size = new System.Drawing.Size(187, 29);
             this.txtFiltro.TabIndex = 6;
             this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
@@ -177,7 +179,7 @@
             // 
             this.txtFiltroAvanzado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFiltroAvanzado.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtFiltroAvanzado.Location = new System.Drawing.Point(71, 93);
+            this.txtFiltroAvanzado.Location = new System.Drawing.Point(0, 0);
             this.txtFiltroAvanzado.Name = "txtFiltroAvanzado";
             this.txtFiltroAvanzado.Size = new System.Drawing.Size(154, 25);
             this.txtFiltroAvanzado.TabIndex = 14;
@@ -195,9 +197,9 @@
             // 
             // pnlFiltroAvanzado
             // 
+            this.pnlFiltroAvanzado.Controls.Add(this.pnlFiltroTextoAvanzado);
             this.pnlFiltroAvanzado.Controls.Add(this.cboCampo);
             this.pnlFiltroAvanzado.Controls.Add(this.btnFiltro);
-            this.pnlFiltroAvanzado.Controls.Add(this.txtFiltroAvanzado);
             this.pnlFiltroAvanzado.Controls.Add(this.lblCampo);
             this.pnlFiltroAvanzado.Controls.Add(this.lblFiltroAvanzado);
             this.pnlFiltroAvanzado.Controls.Add(this.lblCriterio);
@@ -233,17 +235,25 @@
             // pnlFiltro
             // 
             this.pnlFiltro.Controls.Add(this.txtFiltro);
-            this.pnlFiltro.Location = new System.Drawing.Point(78, 18);
+            this.pnlFiltro.Location = new System.Drawing.Point(84, 18);
             this.pnlFiltro.Name = "pnlFiltro";
-            this.pnlFiltro.Size = new System.Drawing.Size(191, 33);
+            this.pnlFiltro.Size = new System.Drawing.Size(187, 33);
             this.pnlFiltro.TabIndex = 19;
+            // 
+            // pnlFiltroTextoAvanzado
+            // 
+            this.pnlFiltroTextoAvanzado.Controls.Add(this.txtFiltroAvanzado);
+            this.pnlFiltroTextoAvanzado.Location = new System.Drawing.Point(71, 96);
+            this.pnlFiltroTextoAvanzado.Name = "pnlFiltroTextoAvanzado";
+            this.pnlFiltroTextoAvanzado.Size = new System.Drawing.Size(154, 31);
+            this.pnlFiltroTextoAvanzado.TabIndex = 14;
             // 
             // FrmCatalogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(584, 611);
+            this.ClientSize = new System.Drawing.Size(584, 630);
             this.Controls.Add(this.pnlFiltro);
             this.Controls.Add(this.btnVerMas);
             this.Controls.Add(this.chkFiltroAvanzado);
@@ -264,6 +274,8 @@
             this.pnlFiltroAvanzado.PerformLayout();
             this.pnlFiltro.ResumeLayout(false);
             this.pnlFiltro.PerformLayout();
+            this.pnlFiltroTextoAvanzado.ResumeLayout(false);
+            this.pnlFiltroTextoAvanzado.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,6 +301,7 @@
         private System.Windows.Forms.CheckBox chkFiltroAvanzado;
         private System.Windows.Forms.Button btnVerMas;
         private System.Windows.Forms.Panel pnlFiltro;
+        private System.Windows.Forms.Panel pnlFiltroTextoAvanzado;
     }
 }
 

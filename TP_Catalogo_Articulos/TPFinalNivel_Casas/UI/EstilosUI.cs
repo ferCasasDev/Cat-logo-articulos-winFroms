@@ -24,6 +24,8 @@ namespace TPFinalNivel_Casas.UI
 
         private static readonly Color colorFondoControl = Color.FromArgb(250, 250, 250);
 
+        private static readonly Color colorError = Color.FromArgb(192, 57, 43);
+
         public static void ConfigurarTextBox (TextBox textBox, Panel panel)
         {
             textBox.BorderStyle = BorderStyle.None;
@@ -39,8 +41,6 @@ namespace TPFinalNivel_Casas.UI
 
             textBox.Location = new Point(0, 0);
             textBox.Width = panel.Width;
-
-
 
             textBox.Enter += (Sender, e) =>
             {
@@ -106,5 +106,18 @@ namespace TPFinalNivel_Casas.UI
             formulario.BackColor = Color.FromArgb(245, 246, 248);
         }
 
+        // Línea roja cuando hay un error en textBox
+        public static void TextBoxError(Panel linea)
+        {
+            linea.BackColor = colorError;
+        }
+
+        internal static void LimpiarError(TextBox textBox, Panel linea)
+        {
+            if (textBox.Focused)
+                linea.BackColor = colorAcento;
+            else
+                linea.BackColor = colorBorde;
+        }
     }
 }

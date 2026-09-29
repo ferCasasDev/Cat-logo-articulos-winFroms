@@ -44,6 +44,7 @@ namespace TPFinalNivel_Casas
 
             //Text Box
             EstilosUI.ConfigurarTextBox(txtFiltro,pnlFiltro);
+            EstilosUI.ConfigurarTextBox(txtFiltroAvanzado,pnlFiltroTextoAvanzado);
             
             Cargar();
             cboCampo.Items.Add("Nombre");
@@ -189,6 +190,8 @@ namespace TPFinalNivel_Casas
                 txtFiltroAvanzado.Text = "Completar Campo";
                 btnFiltro.Enabled = false;
 
+                EstilosUI.TextBoxError(pnlFiltroTextoAvanzado);
+
                 return true;
             }
 
@@ -241,7 +244,9 @@ namespace TPFinalNivel_Casas
             string opcion = cboCampo.SelectedItem.ToString();
             cboCriterio.DataSource = null;
             cboCriterio.Items.Clear();
-            txtFiltroAvanzado.Text = string.Empty;
+            ActivarBoton();
+
+            EstilosUI.LimpiarError(txtFiltroAvanzado, pnlFiltroTextoAvanzado);
 
             if (opcion == "Precio")
             {
@@ -278,6 +283,8 @@ namespace TPFinalNivel_Casas
 
         private void cboCriterio_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ActivarBoton();
+
             if (cboCampo.SelectedItem.ToString() == "Marca")
             {
                 txtFiltroAvanzado.Text = cboCriterio.SelectedItem.ToString();
@@ -295,10 +302,17 @@ namespace TPFinalNivel_Casas
         {
             if (txtFiltroAvanzado.Text == "Completar Campo")
             {
-                txtFiltroAvanzado.Text = string.Empty;
-                btnFiltro.Enabled = true;
-                txtFiltroAvanzado.ForeColor = Color.Black;
+                ActivarBoton();
             }
+        }
+
+        private void ActivarBoton()
+        {
+            txtFiltroAvanzado.Text = string.Empty;
+            btnFiltro.Enabled = true;
+            txtFiltroAvanzado.ForeColor = Color.Black;
+
+            EstilosUI.LimpiarError(txtFiltroAvanzado, pnlFiltroTextoAvanzado);
         }
 
         // limpita el txtFiltro 
