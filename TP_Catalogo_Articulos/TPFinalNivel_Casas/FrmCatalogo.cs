@@ -69,17 +69,23 @@ namespace TPFinalNivel_Casas
                 listaArticulo = negocio.Listar();
                 // Al dataSource del data grid view le asigno la lista.
                 dgvArticulos.DataSource = listaArticulo;
-                OcultarColumnas();   
+                DefinirAnchoColumnas();
+                OcultarColumnas();
                 //CargarImagen(listaArticulo[0].UrlImagen); // cargo la primera imagen
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
         }
 
         //Método para ocultar columnas
+        private void DefinirAnchoColumnas()
+        {
+            dgvArticulos.Columns["Nombre"].Width = 150;
+            dgvArticulos.Columns["Mar"].Width = 90;
+            dgvArticulos.Columns["Precio"].Width = 90;
+        }
         private void OcultarColumnas()
         {
             dgvArticulos.Columns["UrlImagen"].Visible = false;
