@@ -29,6 +29,12 @@ namespace TPFinalNivel_Casas
         // LOAD FORMULARIO
         private void FormCatalogo_Load(object sender, EventArgs e)
         {
+            //Label
+            EstilosUI.ConfigurarLabel(lblFiltro, 30, 22);
+            EstilosUI.ConfigurarLabel(lblCampo, 3, 17);
+            EstilosUI.ConfigurarLabel(lblCriterio, 3, 56);
+            EstilosUI.ConfigurarLabel(lblFiltroAvanzado, 3, 96);
+
             // Formulario
             EstilosUI.ConfigurarFormulario(this);
             
@@ -245,8 +251,6 @@ namespace TPFinalNivel_Casas
             cboCriterio.DataSource = null;
             cboCriterio.Items.Clear();
             ActivarBoton();
-
-            EstilosUI.LimpiarError(txtFiltroAvanzado, pnlFiltroTextoAvanzado);
 
             if (opcion == "Precio")
             {

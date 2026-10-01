@@ -26,6 +26,18 @@ namespace TPFinalNivel_Casas.UI
 
         private static readonly Color colorError = Color.FromArgb(192, 57, 43);
 
+        // Labels
+        public static void ConfigurarLabel(Label label, int x, int y)
+        {
+            label.ForeColor = colorTexto;
+            label.Font = new Font(
+                "Segoe UI",
+                12,
+                FontStyle.Regular
+                );
+            label.Location = new Point(x, y);
+        }
+        
         public static void ConfigurarTextBox (TextBox textBox, Panel panel)
         {
             textBox.BorderStyle = BorderStyle.None;
@@ -103,7 +115,7 @@ namespace TPFinalNivel_Casas.UI
         //Formulario
         public static void ConfigurarFormulario(Form formulario)
         {
-            formulario.BackColor = Color.FromArgb(245, 246, 248);
+            formulario.BackColor = Color.FromArgb(228, 228, 228);
         }
 
         // Línea roja cuando hay un error en textBox
@@ -112,6 +124,7 @@ namespace TPFinalNivel_Casas.UI
             linea.BackColor = colorError;
         }
 
+        // Limpia linea roja de error en textBox
         internal static void LimpiarError(TextBox textBox, Panel linea)
         {
             if (textBox.Focused)

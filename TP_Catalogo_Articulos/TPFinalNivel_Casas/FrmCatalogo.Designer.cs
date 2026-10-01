@@ -43,14 +43,14 @@
             this.txtFiltroAvanzado = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.pnlFiltroAvanzado = new System.Windows.Forms.Panel();
+            this.pnlFiltroTextoAvanzado = new System.Windows.Forms.Panel();
             this.chkFiltroAvanzado = new System.Windows.Forms.CheckBox();
             this.btnVerMas = new System.Windows.Forms.Button();
             this.pnlFiltro = new System.Windows.Forms.Panel();
-            this.pnlFiltroTextoAvanzado = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.pnlFiltroAvanzado.SuspendLayout();
-            this.pnlFiltro.SuspendLayout();
             this.pnlFiltroTextoAvanzado.SuspendLayout();
+            this.pnlFiltro.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvArticulos
@@ -210,6 +210,14 @@
             this.pnlFiltroAvanzado.Size = new System.Drawing.Size(364, 144);
             this.pnlFiltroAvanzado.TabIndex = 16;
             // 
+            // pnlFiltroTextoAvanzado
+            // 
+            this.pnlFiltroTextoAvanzado.Controls.Add(this.txtFiltroAvanzado);
+            this.pnlFiltroTextoAvanzado.Location = new System.Drawing.Point(71, 96);
+            this.pnlFiltroTextoAvanzado.Name = "pnlFiltroTextoAvanzado";
+            this.pnlFiltroTextoAvanzado.Size = new System.Drawing.Size(154, 31);
+            this.pnlFiltroTextoAvanzado.TabIndex = 14;
+            // 
             // chkFiltroAvanzado
             // 
             this.chkFiltroAvanzado.AutoSize = true;
@@ -240,14 +248,6 @@
             this.pnlFiltro.Size = new System.Drawing.Size(187, 33);
             this.pnlFiltro.TabIndex = 19;
             // 
-            // pnlFiltroTextoAvanzado
-            // 
-            this.pnlFiltroTextoAvanzado.Controls.Add(this.txtFiltroAvanzado);
-            this.pnlFiltroTextoAvanzado.Location = new System.Drawing.Point(71, 96);
-            this.pnlFiltroTextoAvanzado.Name = "pnlFiltroTextoAvanzado";
-            this.pnlFiltroTextoAvanzado.Size = new System.Drawing.Size(154, 31);
-            this.pnlFiltroTextoAvanzado.TabIndex = 14;
-            // 
             // FrmCatalogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,6 +265,8 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvArticulos);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmCatalogo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión de Artículos";
@@ -272,10 +274,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             this.pnlFiltroAvanzado.ResumeLayout(false);
             this.pnlFiltroAvanzado.PerformLayout();
-            this.pnlFiltro.ResumeLayout(false);
-            this.pnlFiltro.PerformLayout();
             this.pnlFiltroTextoAvanzado.ResumeLayout(false);
             this.pnlFiltroTextoAvanzado.PerformLayout();
+            this.pnlFiltro.ResumeLayout(false);
+            this.pnlFiltro.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
