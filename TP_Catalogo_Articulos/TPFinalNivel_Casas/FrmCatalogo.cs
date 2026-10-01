@@ -85,6 +85,7 @@ namespace TPFinalNivel_Casas
             dgvArticulos.Columns["Nombre"].Width = 150;
             dgvArticulos.Columns["Mar"].Width = 90;
             dgvArticulos.Columns["Precio"].Width = 90;
+            dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "N2";
         }
         private void OcultarColumnas()
         {
