@@ -29,29 +29,6 @@ namespace TPFinalNivel_Casas
         // LOAD FORMULARIO
         private void FormCatalogo_Load(object sender, EventArgs e)
         {
-            //Label
-            EstilosUI.ConfigurarLabel(lblFiltro, 30, 22);
-            EstilosUI.ConfigurarLabel(lblCampo, 3, 17);
-            EstilosUI.ConfigurarLabel(lblCriterio, 3, 56);
-            EstilosUI.ConfigurarLabel(lblFiltroAvanzado, 3, 96);
-
-            // Formulario
-            EstilosUI.ConfigurarFormulario(this);
-            
-            //Botón Principal
-            EstilosUI.ConfigurarBotonPrincipal(btnAgregar, 435, 69);
-            EstilosUI.ConfigurarBotonPrincipal(btnModificar, 435, 119);
-            EstilosUI.ConfigurarBotonPrincipal(btnEliminar, 435, 169);
-
-            //Botón Secundario
-            EstilosUI.ConfigurarBotonSecundario(btnLimpiar, 280, 18);
-            EstilosUI.ConfigurarBotonSecundario(btnVerMas, 280, 345);
-            EstilosUI.ConfigurarBotonSecundario(btnFiltro, 258, 48);
-
-            //Text Box
-            EstilosUI.ConfigurarTextBox(txtFiltro,pnlFiltro);
-            EstilosUI.ConfigurarTextBox(txtFiltroAvanzado,pnlFiltroTextoAvanzado);
-            
             Cargar();
             cboCampo.Items.Add("Nombre");
             cboCampo.Items.Add("Marca");
@@ -69,7 +46,8 @@ namespace TPFinalNivel_Casas
                 listaArticulo = negocio.Listar();
                 // Al dataSource del data grid view le asigno la lista.
                 dgvArticulos.DataSource = listaArticulo;
-                DefinirAnchoColumnas();
+                InicializarComponentesUi();
+                DefinirColumnas();
                 OcultarColumnas();
                 //CargarImagen(listaArticulo[0].UrlImagen); // cargo la primera imagen
             }
@@ -79,8 +57,34 @@ namespace TPFinalNivel_Casas
             }
         }
 
-        //Método para ocultar columnas
-        private void DefinirAnchoColumnas()
+        //Métodos para inicializar UI 
+        private void InicializarComponentesUi()
+        {
+            //Label
+            EstilosUI.ConfigurarLabel(lblFiltro, 30, 22);
+            EstilosUI.ConfigurarLabel(lblCampo, 3, 17);
+            EstilosUI.ConfigurarLabel(lblCriterio, 3, 56);
+            EstilosUI.ConfigurarLabel(lblFiltroAvanzado, 3, 96);
+
+            // Formulario
+            EstilosUI.ConfigurarFormulario(this);
+
+            //Botón Principal
+            EstilosUI.ConfigurarBotonPrincipal(btnAgregar, 435, 69);
+            EstilosUI.ConfigurarBotonPrincipal(btnModificar, 435, 119);
+            EstilosUI.ConfigurarBotonPrincipal(btnEliminar, 435, 169);
+
+            //Botón Secundario
+            EstilosUI.ConfigurarBotonSecundario(btnLimpiar, 280, 18);
+            EstilosUI.ConfigurarBotonSecundario(btnVerMas, 280, 345);
+            EstilosUI.ConfigurarBotonSecundario(btnFiltro, 258, 48);
+
+            //Text Box
+            EstilosUI.ConfigurarTextBox(txtFiltro, pnlFiltro);
+            EstilosUI.ConfigurarTextBox(txtFiltroAvanzado, pnlFiltroTextoAvanzado);
+
+        }
+        private void DefinirColumnas()
         {
             dgvArticulos.Columns["Nombre"].Width = 150;
             dgvArticulos.Columns["Mar"].Width = 90;
