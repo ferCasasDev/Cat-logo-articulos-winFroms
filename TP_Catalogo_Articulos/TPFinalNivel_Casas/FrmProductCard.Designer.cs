@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblCodigo = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblMarca = new System.Windows.Forms.Label();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.lblShowCodigo = new System.Windows.Forms.Label();
             this.lblShowNombre = new System.Windows.Forms.Label();
@@ -39,81 +38,80 @@
             this.lblShowCategoria = new System.Windows.Forms.Label();
             this.lblShowPrecio = new System.Windows.Forms.Label();
             this.pbxArticulos = new System.Windows.Forms.PictureBox();
+            this.pnlImagen = new System.Windows.Forms.Panel();
+            this.lblCodigo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulos)).BeginInit();
+            this.pnlImagen.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblCodigo
-            // 
-            this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigo.Location = new System.Drawing.Point(336, 125);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(68, 21);
-            this.lblCodigo.TabIndex = 0;
-            this.lblCodigo.Text = "Código:";
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(336, 223);
+            this.lblDescripcion.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(128)))));
+            this.lblDescripcion.Location = new System.Drawing.Point(336, 273);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(104, 21);
+            this.lblDescripcion.Size = new System.Drawing.Size(83, 15);
             this.lblDescripcion.TabIndex = 2;
-            this.lblDescripcion.Text = "Descripción: ";
+            this.lblDescripcion.Text = "DESCRIPCIÓN";
             // 
-            // label1
+            // lblMarca
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(336, 157);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 21);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Marca: ";
+            this.lblMarca.AutoSize = true;
+            this.lblMarca.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMarca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(118)))), ((int)(((byte)(128)))));
+            this.lblMarca.Location = new System.Drawing.Point(590, 156);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(48, 15);
+            this.lblMarca.TabIndex = 3;
+            this.lblMarca.Text = "MARCA";
             // 
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.Location = new System.Drawing.Point(336, 189);
+            this.lblCategoria.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(118)))), ((int)(((byte)(128)))));
+            this.lblCategoria.Location = new System.Drawing.Point(336, 214);
             this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(85, 21);
+            this.lblCategoria.Size = new System.Drawing.Size(70, 15);
             this.lblCategoria.TabIndex = 4;
-            this.lblCategoria.Text = "Categoría:";
+            this.lblCategoria.Text = "CATEGORIA";
             // 
             // lblShowCodigo
             // 
             this.lblShowCodigo.AutoSize = true;
-            this.lblShowCodigo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShowCodigo.Location = new System.Drawing.Point(410, 125);
+            this.lblShowCodigo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShowCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.lblShowCodigo.Location = new System.Drawing.Point(336, 173);
             this.lblShowCodigo.Name = "lblShowCodigo";
-            this.lblShowCodigo.Size = new System.Drawing.Size(0, 21);
+            this.lblShowCodigo.Size = new System.Drawing.Size(0, 20);
             this.lblShowCodigo.TabIndex = 5;
             // 
             // lblShowNombre
             // 
             this.lblShowNombre.AutoSize = true;
-            this.lblShowNombre.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShowNombre.Location = new System.Drawing.Point(336, 37);
+            this.lblShowNombre.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShowNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.lblShowNombre.Location = new System.Drawing.Point(336, 40);
             this.lblShowNombre.Name = "lblShowNombre";
-            this.lblShowNombre.Size = new System.Drawing.Size(0, 30);
+            this.lblShowNombre.Size = new System.Drawing.Size(0, 32);
             this.lblShowNombre.TabIndex = 6;
             // 
             // lblShowDescripcion
             // 
-            this.lblShowDescripcion.AutoSize = true;
-            this.lblShowDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShowDescripcion.Location = new System.Drawing.Point(446, 223);
+            this.lblShowDescripcion.AutoEllipsis = true;
+            this.lblShowDescripcion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShowDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(85)))), ((int)(((byte)(95)))));
+            this.lblShowDescripcion.Location = new System.Drawing.Point(336, 290);
             this.lblShowDescripcion.Name = "lblShowDescripcion";
-            this.lblShowDescripcion.Size = new System.Drawing.Size(0, 21);
+            this.lblShowDescripcion.Size = new System.Drawing.Size(360, 85);
             this.lblShowDescripcion.TabIndex = 7;
             // 
             // lblShowMarca
             // 
             this.lblShowMarca.AutoSize = true;
             this.lblShowMarca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShowMarca.Location = new System.Drawing.Point(405, 157);
+            this.lblShowMarca.Location = new System.Drawing.Point(590, 173);
             this.lblShowMarca.Name = "lblShowMarca";
             this.lblShowMarca.Size = new System.Drawing.Size(0, 21);
             this.lblShowMarca.TabIndex = 8;
@@ -122,7 +120,8 @@
             // 
             this.lblShowCategoria.AutoSize = true;
             this.lblShowCategoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShowCategoria.Location = new System.Drawing.Point(427, 189);
+            this.lblShowCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            this.lblShowCategoria.Location = new System.Drawing.Point(336, 231);
             this.lblShowCategoria.Name = "lblShowCategoria";
             this.lblShowCategoria.Size = new System.Drawing.Size(0, 21);
             this.lblShowCategoria.TabIndex = 10;
@@ -130,29 +129,52 @@
             // lblShowPrecio
             // 
             this.lblShowPrecio.AutoSize = true;
-            this.lblShowPrecio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShowPrecio.Location = new System.Drawing.Point(336, 75);
+            this.lblShowPrecio.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShowPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(100)))));
+            this.lblShowPrecio.Location = new System.Drawing.Point(336, 77);
             this.lblShowPrecio.Name = "lblShowPrecio";
-            this.lblShowPrecio.Size = new System.Drawing.Size(0, 21);
+            this.lblShowPrecio.Size = new System.Drawing.Size(0, 28);
             this.lblShowPrecio.TabIndex = 11;
             // 
             // pbxArticulos
             // 
             this.pbxArticulos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pbxArticulos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbxArticulos.Location = new System.Drawing.Point(34, 25);
+            this.pbxArticulos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbxArticulos.Location = new System.Drawing.Point(20, 20);
             this.pbxArticulos.Name = "pbxArticulos";
-            this.pbxArticulos.Size = new System.Drawing.Size(254, 255);
-            this.pbxArticulos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxArticulos.Size = new System.Drawing.Size(230, 230);
+            this.pbxArticulos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxArticulos.TabIndex = 12;
             this.pbxArticulos.TabStop = false;
+            // 
+            // pnlImagen
+            // 
+            this.pnlImagen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.pnlImagen.Controls.Add(this.pbxArticulos);
+            this.pnlImagen.Location = new System.Drawing.Point(22, 24);
+            this.pnlImagen.Name = "pnlImagen";
+            this.pnlImagen.Padding = new System.Windows.Forms.Padding(20);
+            this.pnlImagen.Size = new System.Drawing.Size(270, 270);
+            this.pnlImagen.TabIndex = 13;
+            // 
+            // lblCodigo
+            // 
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(118)))), ((int)(((byte)(128)))));
+            this.lblCodigo.Location = new System.Drawing.Point(336, 156);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(53, 15);
+            this.lblCodigo.TabIndex = 0;
+            this.lblCodigo.Text = "CÓDIGO";
             // 
             // FrmProductCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 311);
-            this.Controls.Add(this.pbxArticulos);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(744, 419);
+            this.Controls.Add(this.pnlImagen);
             this.Controls.Add(this.lblShowPrecio);
             this.Controls.Add(this.lblShowCategoria);
             this.Controls.Add(this.lblShowMarca);
@@ -160,7 +182,7 @@
             this.Controls.Add(this.lblShowNombre);
             this.Controls.Add(this.lblShowCodigo);
             this.Controls.Add(this.lblCategoria);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblCodigo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -169,16 +191,15 @@
             this.Text = "Detalles del Producto";
             this.Load += new System.EventHandler(this.FrmProductCard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulos)).EndInit();
+            this.pnlImagen.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.Label lblDescripcion;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Label lblShowCodigo;
         private System.Windows.Forms.Label lblShowNombre;
@@ -187,5 +208,7 @@
         private System.Windows.Forms.Label lblShowCategoria;
         private System.Windows.Forms.Label lblShowPrecio;
         private System.Windows.Forms.PictureBox pbxArticulos;
+        private System.Windows.Forms.Panel pnlImagen;
+        private System.Windows.Forms.Label lblCodigo;
     }
 }

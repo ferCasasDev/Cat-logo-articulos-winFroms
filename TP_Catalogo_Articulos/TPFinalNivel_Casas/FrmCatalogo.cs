@@ -76,7 +76,7 @@ namespace TPFinalNivel_Casas
 
             //Botón Secundario
             EstilosUI.ConfigurarBotonSecundario(btnLimpiar, 280, 18);
-            EstilosUI.ConfigurarBotonSecundario(btnVerMas, 280, 345);
+            EstilosUI.ConfigurarBotonSecundario(btnVerDetalles, 280, 345);
             EstilosUI.ConfigurarBotonSecundario(btnFiltro, 258, 48);
 
             //Text Box
@@ -86,9 +86,9 @@ namespace TPFinalNivel_Casas
         }
         private void DefinirColumnas()
         {
-            dgvArticulos.Columns["Nombre"].Width = 150;
-            dgvArticulos.Columns["Mar"].Width = 90;
-            dgvArticulos.Columns["Precio"].Width = 90;
+            dgvArticulos.Columns["Nombre"].Width = 154;
+            dgvArticulos.Columns["Mar"].Width = 85;
+            dgvArticulos.Columns["Precio"].Width = 85;
             dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "N2";
         }
         private void OcultarColumnas()
@@ -338,11 +338,11 @@ namespace TPFinalNivel_Casas
         }
 
         // Botón que muestra los detalles completos del producto
-        private void btnVerMas_Click(object sender, EventArgs e)
+        private void btnVerDetalles_Click(object sender, EventArgs e)
         {
             Articulo seleccionado = new Articulo();
-            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem; 
-            
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
             FrmProductCard formDetalles = new FrmProductCard(seleccionado);
             formDetalles.ShowDialog();
         }

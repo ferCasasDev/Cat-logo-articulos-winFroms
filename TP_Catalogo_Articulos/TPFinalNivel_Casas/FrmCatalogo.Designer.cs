@@ -45,7 +45,7 @@
             this.pnlFiltroAvanzado = new System.Windows.Forms.Panel();
             this.pnlFiltroTextoAvanzado = new System.Windows.Forms.Panel();
             this.chkFiltroAvanzado = new System.Windows.Forms.CheckBox();
-            this.btnVerMas = new System.Windows.Forms.Button();
+            this.btnVerDetalles = new System.Windows.Forms.Button();
             this.pnlFiltro = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.pnlFiltroAvanzado.SuspendLayout();
@@ -231,15 +231,15 @@
             this.chkFiltroAvanzado.UseVisualStyleBackColor = true;
             this.chkFiltroAvanzado.CheckedChanged += new System.EventHandler(this.chkFiltroAvanzado_CheckedChanged);
             // 
-            // btnVerMas
+            // btnVerDetalles
             // 
-            this.btnVerMas.Location = new System.Drawing.Point(320, 340);
-            this.btnVerMas.Name = "btnVerMas";
-            this.btnVerMas.Size = new System.Drawing.Size(75, 23);
-            this.btnVerMas.TabIndex = 18;
-            this.btnVerMas.Text = "Ver Más";
-            this.btnVerMas.UseVisualStyleBackColor = true;
-            this.btnVerMas.Click += new System.EventHandler(this.btnVerMas_Click);
+            this.btnVerDetalles.Location = new System.Drawing.Point(320, 340);
+            this.btnVerDetalles.Name = "btnVerDetalles";
+            this.btnVerDetalles.Size = new System.Drawing.Size(75, 23);
+            this.btnVerDetalles.TabIndex = 18;
+            this.btnVerDetalles.Text = "Ver Detalles";
+            this.btnVerDetalles.UseVisualStyleBackColor = true;
+            this.btnVerDetalles.Click += new System.EventHandler(this.btnVerDetalles_Click);
             // 
             // pnlFiltro
             // 
@@ -256,7 +256,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(584, 630);
             this.Controls.Add(this.pnlFiltro);
-            this.Controls.Add(this.btnVerMas);
+            this.Controls.Add(this.btnVerDetalles);
             this.Controls.Add(this.chkFiltroAvanzado);
             this.Controls.Add(this.pnlFiltroAvanzado);
             this.Controls.Add(this.btnLimpiar);
@@ -302,7 +302,7 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Panel pnlFiltroAvanzado;
         private System.Windows.Forms.CheckBox chkFiltroAvanzado;
-        private System.Windows.Forms.Button btnVerMas;
+        private System.Windows.Forms.Button btnVerDetalles;
         private System.Windows.Forms.Panel pnlFiltro;
         private System.Windows.Forms.Panel pnlFiltroTextoAvanzado;
     }

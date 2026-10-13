@@ -13,7 +13,7 @@ namespace TPFinalNivel_Casas
 {
     public partial class FrmProductCard : Form
     {
-        Articulo articulo = new Articulo();
+        Articulo articulo;
         
         public FrmProductCard()
         {
@@ -40,7 +40,7 @@ namespace TPFinalNivel_Casas
                 lblShowDescripcion.Text = articulo.Descripcion;
                 lblShowMarca.Text = articulo.Mar.Descripcion;
                 lblShowCategoria.Text = articulo.Cate.Descripcion;
-                lblShowPrecio.Text = "$ " + articulo.Precio.ToString("F2");
+                lblShowPrecio.Text = "$ " + articulo.Precio.ToString("N2");
 
             }
             catch (Exception ex)
