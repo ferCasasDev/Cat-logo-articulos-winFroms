@@ -62,5 +62,10 @@ namespace TPFinalNivel_Casas
             }
         }
 
+        // Bontón para cerrar el formulario 
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
